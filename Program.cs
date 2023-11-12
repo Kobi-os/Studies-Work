@@ -1,21 +1,11 @@
-﻿class Program
+﻿namespace ConvertAPP
 {
-    static void Main()
+    internal class Program
     {
-        double a, b;
-
-        a = Math.Pow(Math.Sqrt(2), 3);
-        b = Math.Pow(3, Math.Sqrt(2));
-
-        if (a > b)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Pierwiastek z dwóch jest większy niż pierwiastek z 3");
-        } else
-        {
-            Console.WriteLine("Pierwiastek z 3 jest większy niż pierwiastek z 2");
+            Console.WriteLine("Welcome! Please enter 'c' tu use the currency converter, or anything else to use the temperature converter");
+            Console.ReadLine();
         }
-
     }
-}
-
-
+} 
