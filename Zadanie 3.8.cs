@@ -1,35 +1,26 @@
 ﻿using System;
 
-namespace Zadanie_3._8
+namespace Zadanie_3._9
 {
     class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Podaj liczbę naturalną ");
+            int liczba = Convert.ToInt32(Console.ReadLine());
 
-            double x;
+            int dzielnik = 1;
+            Console.WriteLine("Dzielniki Liczby {0} : ", liczba);
+
             do
             {
-                Console.WriteLine("Podaj Liczbe");
-                string userNumber = Console.ReadLine();
+                if (liczba % dzielnik == 0)
+                {
+                    Console.WriteLine(dzielnik);
+                }
+                dzielnik++;
+            } while (dzielnik <= liczba);
 
-                if (double.TryParse(userNumber, out x))
-                {
-                    if (Math.Abs(x) > 2 && Math.Abs(x) < 3)
-                    {
-                        Console.WriteLine("Liczba {0} spelnia warunek 2<|x|<3", x);
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Liczba {0} nie spełnia warunku 2<|x|<3", x);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Nieprawidłowe dane, Podaj Liczbe ");
-                }
-            } while (true);
         }
     }
 }
