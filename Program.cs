@@ -1,71 +1,35 @@
 ﻿using System;
 
-namespace Zadanie_5._1
+namespace Zadanie_5._2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Podaj rozmiar tablicy");
-            int rozmiarTablicy = 0;
-            bool userValidInput = false;
+            int[] tablica = new int[30];
 
-            while (!userValidInput)
+            for (int i = 0; i < tablica.Length; i++)
             {
-                try
-                {
-                    rozmiarTablicy = int.Parse(Console.ReadLine());
-                    userValidInput = true;
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Nieprawidłowy format danych. Podaj liczbe całkowitą");
-                }
-                catch(OverflowException)
-                {
-                    Console.WriteLine("Podana wartość jest zbyt duża lub zbyt mała.");
-                } 
-                catch (Exception)
-                {
-                    Console.WriteLine("Wystąpił nieoczekiwany błąd");
-                }
+                tablica[i] = i + 1;
             }
 
-            int[] tablica = new int[rozmiarTablicy];
+            int suma = 0;
 
-            for (int i = 0; i < rozmiarTablicy; i++)
+            foreach (int num in tablica)
             {
-                Console.Write($"Podaj wartość dla elementu: {i}: ");
-                userValidInput = false;
-
-                while (!userValidInput)
-                {
-                    try
-                    {
-                        tablica[i] = int.Parse(Console.ReadLine());
-                        userValidInput = true;
-                    }
-                    catch(FormatException)
-                    {
-                        Console.WriteLine("Nieprawidłowy format danych. Podaj liczbe całkowitą");
-                    }
-                    catch (OverflowException)
-                    {
-                        Console.WriteLine("Podana wartość jest zbyt duża lub zbyt mała.");
-                    }
-                    catch(Exception)
-                    {
-                    Console.WriteLine("Wystąpił nieoczekiwany błąd");
-                    }
-                }
+                suma += num;
             }
 
-                Console.WriteLine("Zawartość tablicy:");
+            double srednia = (double)suma / tablica.Length;
 
-                for (int i = 0; i < rozmiarTablicy; i++) {
-                    Console.WriteLine($"Element {i}; {tablica[i]}");
-                }
-            
+            Console.WriteLine("tablica elementów");
+
+            foreach (int num in tablica)
+            {
+                Console.WriteLine(num + " ");
+            }
+
+            Console.WriteLine($"\n Średnia wartosc elementów tablicy: {srednia}");
         }
     }
 }
